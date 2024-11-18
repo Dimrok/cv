@@ -1,16 +1,16 @@
 <template>
-  <header>This page has been optimized for printing.</header>
-  <div class="head">
+  <header>{{ $t('print') }}</header>
+  <section class="head">
     <div>
-      <h1>Antony MECHIN</h1>
+      <h1>{{ self.firstName }} {{  self.lastName.toUpperCase() }}</h1>
       <p class="title">Software Engineer, Former Chief Technology Officer at Koala Insurance</p>
-      <p><span>Location: </span>Paris, France | Lausanne, Switzerland</p>
-      <p><span>Nationality: </span>French</p>
-      <p><span>Age: </span>36</p>
+      <p><span>Location: </span>{{ self.locations.join(' | ') }}</p>
+      <p><span>Nationality: </span>{{ $t('nationality.fr') }}</p>
+      <p><span>Age: </span>{{ self.birth.diffNow().negate().toFormat('y') }}</p>
     </div>
     <img src="@/assets/picture.jpeg" alt="Profile picture" />
-  </div>
-  <div class="page-wrapper">
+  </section>
+  <section class="page-wrapper">
     <aside>
       <section>
         <h2>Contact</h2>
@@ -54,20 +54,14 @@
       <section>
         <h2>Professional Interests</h2>
         <ul>
-          <li>Software Engineering</li>
-          <li>Process Optimization</li>
-          <li>Project Management</li>
-          <li>Team Management</li>
+          <li v-for="interest in self.professionalInterests" :key="interest">{{ $t(`interests.${interest}`) }}</li>
         </ul>
       </section>
       <section>
         <h2>Personal Interests</h2>
         <ul>
-          <li>Hiking</li>
-          <li>Role-Playing Games</li>
-          <li>Woodworking</li>
-          <li>Handcraft</li>
-        </ul>
+          <li v-for="interest in self.personalInterests" :key="interest">{{ $t(`interests.${interest}`) }}</li>
+          </ul>
       </section>
     </aside>
     <div class="content">
@@ -82,10 +76,11 @@
         </div>
       </section>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
+import { self } from '@/data/self';
 import { experience } from '@/data/experience'
 import { education } from '@/data/education'
 
@@ -136,6 +131,7 @@ header {
 
 .head .title {
   padding-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .page-wrapper {
@@ -150,7 +146,7 @@ header {
 aside {
   font-size: 0.8rem;
   padding: var(--inner-padding);
-  background-color: var(--aside-background-color);
+  background-color: var(--color-background-aside);
 }
 
 aside ul {
@@ -208,7 +204,7 @@ aside .skill .stars {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: var(--base-text-color);
+  background-color: var(--color-text-primary);
 }
 
 .experience,
@@ -225,7 +221,7 @@ aside .skill .stars {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #ddd;
+  background-color: var(--color-text-secondary);
 }
 
 .experience:last-child::after,
@@ -244,6 +240,7 @@ aside .skill .stars {
 
   aside ul li {
     line-height: 1.4rem;
+    margin-left: 0rem;
   }
 }
 

@@ -60,13 +60,14 @@ h5 {
 }
 
 * {
-  --base-text-color: #000000;
-  --secondary-text-color: #666666;
-  --aside-background-color: #7da5dd;
-  --tag-background-color: #d3d3d3;
-  --tag-text-color: #000;
+  --color-text-primary: #000000;
+  --color-background: #ffffff;
+  --color-text-secondary: #666666;
+  --color-background-aside: #7da5dd;
+  --color-background-tag: #d3d3d3;
+  --color-text-tag: #000;
 
-  color: var(--base-text-color);
+  color: var(--color-text-primary);
 }
 
 li {
@@ -74,7 +75,7 @@ li {
 }
 
 a {
-  color: var(--base-text-color);
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
@@ -85,6 +86,19 @@ a:hover {
 @media print {
   header {
     display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    --color-text-primary: #000000;
+    --color-background: #ffffff;
+    --color-text-secondary: #666666;
+    --color-background-aside: #7da5dd;
+    --color-background-tag: #d3d3d3;
+    --color-text-tag: #000;
+
+    color: var(--color-text-primary);
   }
 }
 </style>

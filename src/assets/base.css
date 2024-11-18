@@ -133,7 +133,7 @@ body {
 
 @media print {
   @page {
-    size: auto;
+    size: A4;
     margin: 5mm;
   }
 
@@ -149,7 +149,9 @@ body {
   }
 
   * {
-    color-adjust: exact; /* Forcing color preservation */
+    -webkit-color-adjust: exact;
+    color-adjust: exact;
+    /* Forcing color preservation */
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -173,6 +175,7 @@ body {
   .stage,
   .company,
   .no-break {
-    page-break-inside: avoid; /* Prevents page breaks within these elements */
+    page-break-inside: avoid;
+    /* Prevents page breaks within these elements */
   }
 }

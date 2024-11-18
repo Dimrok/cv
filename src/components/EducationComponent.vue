@@ -8,12 +8,10 @@
         {{ props.dates[0].toFormat('LLLL yyyy') }} - {{ props.dates[1].toFormat('LLLL yyyy') }}
       </a>
     </p>
-    <p>
-      <a class="about">{{ props.description }}</a>
-    </p>
+    <p class="about">{{ props.description }}</p>
     <ul class="tags">
       <li v-for="tag of props.activities" :key="tag" class="tag">
-        {{ tag }}
+        {{ $t(`activities.${tag}`) }}
       </li>
     </ul>
   </section>
@@ -28,17 +26,19 @@ const props = defineProps<Education>()
 <style scoped>
 .dates {
   font-size: 0.875rem;
-  color: var(--secondary-text-color);
+  color: var(--color-text-secondary);
   position: relative;
   top: -0.25rem;
 }
 
 .about {
   width: auto;
-  margin-block: 0.25rem;
+  margin-block: 0.75rem;
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
 }
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -51,8 +51,8 @@ const props = defineProps<Education>()
   font-size: 0.7rem;
   font-weight: 600;
   margin-right: 0.5rem;
-  background-color: var(--tag-background-color);
-  color: var(--tag-text-color);
+  background-color: var(--color-background-tag);
+  color: var(--color-text-tag);
   padding: 0.125rem 0.5rem;
   border-radius: 0.35rem;
 }

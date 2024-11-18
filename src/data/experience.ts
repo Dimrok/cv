@@ -14,7 +14,7 @@ export const experience: Experience[] = [
         name: 'Late stage (up to 8 developers)',
         dates: [DateTime.fromISO('2021-05'), DateTime.fromISO('2024-09')],
         description: undefined,
-        tags: ['Hiring', 'Management', 'Processes', 'Tooling', 'Design', 'Turborepo'],
+        skills: ['Hiring', 'Management', 'Processes', 'Tooling', 'Design', 'Turborepo'],
         tasks: [
           'Hired 12 and managed up to 8 developers',
           'Defined internal processes (ownership, studies, batmaning)',
@@ -27,12 +27,12 @@ export const experience: Experience[] = [
         name: 'Mid stage (3 developers)',
         dates: [DateTime.fromISO('2021-01'), DateTime.fromISO('2021-05')],
         description: undefined,
-        tags: [
+        skills: [
           'TypeScript',
           'monorepo',
           'NestJS',
           'Prisma',
-          'Vue',
+          'Vue3',
           'AWS',
           'Docker',
           'Jest',
@@ -53,7 +53,7 @@ export const experience: Experience[] = [
         name: 'Early stage (solo developer)',
         dates: [DateTime.fromISO('2019-10'), DateTime.fromISO('2021-01')],
         description: undefined,
-        tags: ['JavaScript', 'Node.js', 'Express', 'Jest', 'AWS', 'Docker', 'GitLab'],
+        skills: ['JavaScript', 'Node.js', 'Express', 'Jest', 'AWS', 'Docker', 'GitLab'],
         tasks: ['Designed and implemented the PoC that led to our first fundraising'],
         hide: false,
       },
@@ -69,7 +69,7 @@ export const experience: Experience[] = [
       {
         name: 'Modernize Traditional Application',
         dates: [DateTime.fromISO('2018-01'), DateTime.fromISO('2019-01')],
-        tags: ['Terraform', 'Ansible', 'AWS', 'GCP', 'Python3', 'Bash'],
+        skills: ['Terraform', 'Ansible', 'AWS', 'GCP', 'Python3', 'Bash'],
         description:
           'Developed internal tooling to help clients modernize their applications by containerizing them and preparing cloud environments for Swarm.',
         tasks: [
@@ -82,7 +82,7 @@ export const experience: Experience[] = [
         dates: [DateTime.fromISO('2016-10'), DateTime.fromISO('2018-01')],
         description:
           'Following Docker’s acquisition of Infinit, maintained and open-sourced core libraries.',
-        tags: ['C++', 'Python 3', 'GitHub', 'Linux', 'CI/CD', 'Build Tools', 'Drake'],
+        skills: ['C++', 'Python3', 'GitHub', 'Linux', 'CI/CD', 'Build Tools', 'Drake'],
         tasks: [
           'Open-sourced our closed stack',
           'Refactored the codebase for maintainability',
@@ -106,7 +106,7 @@ export const experience: Experience[] = [
       {
         name: 'Distributed Filesystem',
         dates: [DateTime.fromISO('2015-04'), DateTime.fromISO('2016-10')],
-        tags: ['C++14', 'Python3', 'Node.js'],
+        skills: ['C++14', 'Python3', 'Node.js'],
         description:
           'The Infinit Storage Platform makes it easy to create and access decentralized storage, shared across an unlimited number of nodes, while guaranteeing bank-level cryptography, fine-grained access control, and data high-availability.',
         tasks: [
@@ -120,7 +120,7 @@ export const experience: Experience[] = [
       {
         name: 'File Transfer Application',
         dates: [DateTime.fromISO('2012-10'), DateTime.fromISO('2015-04')],
-        tags: ['C++11', 'Python3', 'REST', 'MongoDB', 'Qt'],
+        skills: ['C++11', 'Python3', 'REST', 'MongoDB', 'Qt'],
         description:
           'The File Transfer Application was a multi-platform (Win, Mac, Linux, iOS, and Android) application allowing one to securely send files without size restrictions to other Infinit users, thanks to peer-to-peer technology and cloud-based storage.',
         tasks: [
@@ -144,7 +144,7 @@ export const experience: Experience[] = [
         name: 'Pro Cycling Manager 2012',
         dates: [DateTime.fromISO('2012-02'), DateTime.fromISO('2012-08')],
         description: 'Joined a ~12 members team on Pro Cycling Manager 2012 as an intern.',
-        tags: ['C++', 'CyanScript'],
+        skills: ['C++', 'CyanScript'],
         tasks: ['Developed new features', 'Enhanced the GUI', 'Refactored legacy code'],
         hide: true,
       },
@@ -160,7 +160,7 @@ export const experience: Experience[] = [
       {
         name: 'Gostai Jazz Robot',
         dates: [DateTime.fromISO('2010-09'), DateTime.fromISO('2011-01')],
-        tags: ['C', 'C++', 'Electronics', 'Signal Analysis', 'KiCad'],
+        skills: ['C', 'C++', 'Electronics', 'Signal Analysis', 'KiCad'],
         description:
           'Worked on the Gostai Jazz robot’s docking station, sensor acquisition, and assembly.',
         tasks: [

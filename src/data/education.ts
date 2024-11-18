@@ -1,29 +1,30 @@
+import type { Activity } from '@/types/activities'
 import type { Education } from '@/types/education'
 import { DateTime } from 'luxon'
 
 export const education: Education[] = [
   {
-    institution: 'Université de Technologie de Compiègne (UTC)',
-    degree: 'Engineer’s Degree, Computer Science',
-    dates: [DateTime.fromISO('2009-09'), DateTime.fromISO('2012-06')],
+    institution: 'University of Technology of Compiègne',
+    degree: 'Master of Science in Computer Science',
+    dates: [DateTime.fromISO('2010-09'), DateTime.fromISO('2012-06')],
     activities: [
-      'Software Engineering',
-      'Mathematics',
-      'Operating Systems',
-      'Computer Networks',
-      'Databases',
-    ],
+      'software_engineering',
+      'mathematics',
+      'operating_systems',
+      'computer_networks',
+      'databases',
+    ] satisfies Activity[],
   },
   {
     institution: 'Tecnológico de Monterrey',
     degree: "Engineer's degree, Computer Software Engineering",
     dates: [DateTime.fromISO('2011-08'), DateTime.fromISO('2011-12')],
     activities: [
-      'Applied Robotics',
-      'Modeling and animation',
-      'Programming languages',
-      'Introduction to Computer Graphics',
-      'Theory of computation',
+      'applied_robotics',
+      'modeling_and_animation',
+      'programming_languages',
+      'introduction_to_computer_graphics',
+      'theory_of_computation',
     ],
     description:
       'Student exchange program between the University of Technology of Compiègne and University of Technology of Monterrey.',
@@ -32,7 +33,7 @@ export const education: Education[] = [
     institution: 'IUT Cachan',
     degree: 'Advanced Technician in Electronics and Computer Science',
     dates: [DateTime.fromISO('2007-09'), DateTime.fromISO('2009-06')],
+    activities: ['electronics', 'computer_science', 'mathematics', 'physics'] satisfies Activity[],
     logo: 'IUT Cachan',
-    activities: ['Electronics', 'Computer Science', 'Mathematics', 'Physics'],
   },
 ]
