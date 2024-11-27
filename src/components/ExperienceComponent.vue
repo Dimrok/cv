@@ -1,8 +1,8 @@
 <template>
   <section class="no-break">
-    <h3>
+    <h4>
       {{ props.company }}<span> - {{ props.title }}</span>
-    </h3>
+    </h4>
     <a class="dates-and-location">
       {{ props.dates[0].toFormat('LLLL yyyy') }} - {{ props.dates[1].toFormat('LLLL yyyy') }} ({{
         toHuman(props.dates[1].diff(props.dates[0]))
@@ -14,9 +14,9 @@
   </section>
   <div v-for="stage of props.stages" :key="stage.name" class="stage no-break">
     <section v-if="!stage.hide">
-      <h4>
+      <h5>
         {{ stage.name }}
-      </h4>
+      </h5>
       <a class="dates"
         >{{ stage.dates[0].toFormat('LLLL yyyy') }} - {{ stage.dates[1].toFormat('LLLL yyyy') }} ({{
           toHuman(stage.dates[1].diff(stage.dates[0]))
@@ -45,7 +45,7 @@ const props = defineProps<Experience>()
 </script>
 
 <style scoped>
-h4 {
+h5 {
   margin-bottom: 0.25rem;
 }
 

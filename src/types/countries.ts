@@ -1,3 +1,3 @@
-const COUNTRIES = ['fr', 'ch'] as const;
+const COUNTRIES = ['fr', 'ch'] as const
 
-export type Country = typeof COUNTRIES[number];
+export type Country = (typeof COUNTRIES)[number]

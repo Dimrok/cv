@@ -9,10 +9,12 @@ import { RouterView } from 'vue-router'
 <style>
 * {
   font-size: 12px;
+  --ff-sans-serif: 'Avenir', Helvetica, Arial, sans-serif;
+  --ff-serif: 'Georgia', serif;
 }
 
 body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: var(--ff-sans-serif);
   margin: 0;
   padding: 0;
   display: flex;
@@ -34,29 +36,24 @@ h5 {
 }
 
 h1 {
-  font-size: 2rem;
-  line-height: 2rem;
-  padding-bottom: 0.5rem;
-  font-weight: 700;
+  font: 600 1.8rem/1.1em var(--ff-serif);
 }
 
 h2 {
-  font-size: 1.8rem;
-  line-height: 1.8rem;
-  font-weight: 700;
+  font: 700 2rem/1.2em var(--ff-sans-serif);
   margin-block: 1rem;
 }
 
 h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1.4rem;
+  font: 700 1.6rem/1.4em var(--ff-sans-serif);
 }
 
-h4,
+h4 {
+  font: 600 1.4rem/1.6em var(--ff-sans-serif);
+}
+
 h5 {
-  font-size: 1.125rem;
-  font-weight: 600;
+  font: 600 1.2rem/1.8em var(--ff-sans-serif);
 }
 
 * {

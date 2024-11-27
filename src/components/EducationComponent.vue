@@ -1,8 +1,8 @@
 <template>
   <section class="no-break">
-    <h3>
+    <h4>
       {{ props.institution }}<span> - {{ props.degree }}</span>
-    </h3>
+    </h4>
     <p>
       <a class="dates">
         {{ props.dates[0].toFormat('LLLL yyyy') }} - {{ props.dates[1].toFormat('LLLL yyyy') }}

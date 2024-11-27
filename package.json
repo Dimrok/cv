@@ -14,7 +14,7 @@
     "type-check": "vue-tsc --build --force",
     "lint:oxlint": "oxlint . --fix -D correctness",
     "lint:eslint": "eslint . --fix",
-    "lint": "run-s lint:*",
+    "lint": "run-s 'lint:**'",
     "format": "prettier --write src/"
   },
   "dependencies": {
@@ -50,6 +50,6 @@
   "packageManager": "yarn@4.5.1",
   "volta": {
     "node": "22.5.1",
-    "yarn": "4.5.1"
+    "yarn": "4.5.3"
   }
 }

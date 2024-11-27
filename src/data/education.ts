@@ -4,8 +4,8 @@ import { DateTime } from 'luxon'
 
 export const education: Education[] = [
   {
-    institution: 'University of Technology of Compiègne',
-    degree: 'Master of Science in Computer Science',
+    institution: 'UTC (Compiègne)',
+    degree: "Engineer's degree (Computer Science)",
     dates: [DateTime.fromISO('2010-09'), DateTime.fromISO('2012-06')],
     activities: [
       'software_engineering',
@@ -17,7 +17,7 @@ export const education: Education[] = [
   },
   {
     institution: 'Tecnológico de Monterrey',
-    degree: "Engineer's degree, Computer Software Engineering",
+    degree: "Engineer's degree (Computer Science)",
     dates: [DateTime.fromISO('2011-08'), DateTime.fromISO('2011-12')],
     activities: [
       'applied_robotics',

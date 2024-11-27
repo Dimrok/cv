@@ -2,28 +2,28 @@
   <header>{{ $t('print') }}</header>
   <section class="head">
     <div>
-      <h1>{{ self.firstName }} {{  self.lastName.toUpperCase() }}</h1>
-      <p class="title">Software Engineer, Former Chief Technology Officer at Koala Insurance</p>
-      <p><span>Location: </span>{{ self.locations.join(' | ') }}</p>
-      <p><span>Nationality: </span>{{ $t('nationality.fr') }}</p>
-      <p><span>Age: </span>{{ self.birth.diffNow().negate().toFormat('y') }}</p>
+      <h1>{{ self.firstName }} {{ self.lastName.toUpperCase() }}</h1>
+      <h2>Software Engineer, Former Chief Technology Officer at Koala Insurance</h2>
+      <p class="highlight"><span>Location: </span>{{ self.locations.join(' | ') }}</p>
+      <p class="highlight"><span>Nationality: </span>{{ $t('nationality.fr') }}</p>
+      <p class="highlight"><span>Age: </span>{{ self.birth.diffNow().negate().toFormat('y') }}</p>
     </div>
     <img src="@/assets/picture.jpeg" alt="Profile picture" />
   </section>
   <section class="page-wrapper">
     <aside>
       <section>
-        <h2>Contact</h2>
+        <h3>Contact</h3>
         <ul>
           <li><a href="tel:+33640129679">+33 6 40 12 96 79</a></li>
           <li><a href="mailto:antony.mechin@gmail.com">antony.mechin@gmail.com</a></li>
-          <li><a href="https://dimrok.github.io/cv">dimrok.github.io/cv</a></li>
+          <li><a href="https://dimrok.github.io/resume">dimrok.github.io/resume</a></li>
           <li><a href="https://linkedin.com/in/antony-mechin">linkedin.com/in/antony-mechin</a></li>
           <li><a href="https://github.com/dimrok">github.com/dimrok</a></li>
         </ul>
       </section>
       <section>
-        <h2>Languages</h2>
+        <h3>Languages</h3>
         <ul>
           <li><span>French:</span> Native</li>
           <li><span>English:</span> Professional</li>
@@ -31,17 +31,18 @@
         </ul>
       </section>
       <section>
-        <h2>Skills</h2>
+        <h3>Skills</h3>
         <ul>
           <li v-for="[name, grade] of Object.entries(skills)" :key="name">
             <div class="skill">
-              <span>{{ name }}</span>
+              {{ name }}
               <StarRating
                 class="stars"
                 :increment="0.5"
                 :read-only="true"
                 :show-rating="false"
                 :fixed-points="1"
+                :star-id="0"
                 :round-start-rating="false"
                 :rating="grade"
                 active-color="black"
@@ -52,25 +53,31 @@
         </ul>
       </section>
       <section>
-        <h2>Professional Interests</h2>
+        <h3>Professional Interests</h3>
         <ul>
-          <li v-for="interest in self.professionalInterests" :key="interest">{{ $t(`interests.${interest}`) }}</li>
+          <li v-for="interest in self.professionalInterests" :key="interest">
+            {{ $t(`interests.${interest}`) }}
+          </li>
         </ul>
       </section>
       <section>
-        <h2>Personal Interests</h2>
+        <h3>Personal Interests</h3>
         <ul>
-          <li v-for="interest in self.personalInterests" :key="interest">{{ $t(`interests.${interest}`) }}</li>
-          </ul>
+          <li v-for="interest in self.personalInterests" :key="interest">
+            {{ $t(`interests.${interest}`) }}
+          </li>
+        </ul>
       </section>
     </aside>
     <div class="content">
-      <h2>Experience</h2>
-      <div v-for="xp of experience" :key="xp.company" class="experience">
-        <ExperienceComponent v-bind="xp" />
-      </div>
       <section>
-        <h2>Education</h2>
+        <h3>Experience</h3>
+        <div v-for="xp of experience" :key="xp.company" class="experience">
+          <ExperienceComponent v-bind="xp" />
+        </div>
+      </section>
+      <section>
+        <h3>Education</h3>
         <div v-for="edu of education" :key="edu.institution" class="education">
           <EducationComponent v-bind="edu" />
         </div>
@@ -80,7 +87,7 @@
 </template>
 
 <script setup lang="ts">
-import { self } from '@/data/self';
+import { self } from '@/data/self'
 import { experience } from '@/data/experience'
 import { education } from '@/data/education'
 
@@ -121,17 +128,17 @@ header {
   margin: 1rem var(--inner-padding);
 }
 
-.head img {
-  height: 128px;
+.head .highlight {
+  font-size: 1.4rem;
 }
 
-.head span {
+.head .highlight span {
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
-.head .title {
-  padding-bottom: 0.5rem;
-  font-size: 1.5rem;
+.head img {
+  height: 128px;
 }
 
 .page-wrapper {
@@ -163,12 +170,8 @@ aside li span {
   font-weight: 700;
 }
 
-aside h2 {
+aside h3 {
   margin: 0;
-  padding-bottom: 0.5rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1.4rem;
 }
 
 aside .skill {
@@ -192,15 +195,15 @@ aside .skill .stars {
   padding: var(--inner-padding);
 }
 
-.content h2 {
+.content h3 {
   position: relative;
-  margin-top: 0;
+  margin-bottom: 0.2em;
 }
 
-.content h2::after {
+.content h3::after {
   content: '';
   position: absolute;
-  bottom: -0.125rem;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 3px;
@@ -209,7 +212,7 @@ aside .skill .stars {
 
 .experience,
 .education {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 
@@ -217,7 +220,7 @@ aside .skill .stars {
 .education::after {
   content: '';
   position: absolute;
-  bottom: -1.125rem;
+  bottom: -0.65rem;
   left: 0;
   width: 100%;
   height: 1px;
@@ -275,6 +278,10 @@ aside .skill .stars {
   .content .head img {
     width: 100%;
     height: auto;
+  }
+
+  .content section {
+    margin-bottom: 1rem;
   }
 
   .experience,

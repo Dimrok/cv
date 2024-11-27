@@ -12,7 +12,7 @@ const ACTIVITIES = [
   'electronics',
   'computer_science',
   'mathematics',
-  'physics'
-] as const;
+  'physics',
+] as const
 
-export type Activity = typeof ACTIVITIES[number];
+export type Activity = (typeof ACTIVITIES)[number]

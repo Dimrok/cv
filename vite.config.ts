@@ -6,7 +6,7 @@ import viteCompression from 'vite-plugin-compression';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/cv",
+  base: "/",
   plugins: [
     vue(),
     viteCompression(),
@@ -17,6 +17,8 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: './dist'
+    outDir: './dist',
+    emptyOutDir: true,
+
   }
 })

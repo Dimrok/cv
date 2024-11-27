@@ -39,9 +39,9 @@ const SKILLS = [
   'Tooling',
   'Turborepo',
   'TypeScript',
-  'Vue3'
-] as const;
-export type Skill = typeof SKILLS[number];
+  'Vue3',
+] as const
+export type Skill = (typeof SKILLS)[number]
 
 export type Stage = {
   hide: boolean

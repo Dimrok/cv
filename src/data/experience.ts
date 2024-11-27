@@ -43,7 +43,7 @@ export const experience: Experience[] = [
           'Rewrote the PoC using healthier environment (TypeScript, NestJS, Prisma, monorepo, Jest)',
           'Established code quality and collaboration standards',
           'Improved delivery (Docker, AWS ECR, AWS ECS, AWS CDK)',
-          'Enhanced and migrated the CI/CD from GitLab to GitHub)',
+          'Enhanced and migrated the CI/CD from GitLab to GitHub',
           'Designed an event-driven architecture (EventBridge, Lambda, SQS)',
         ],
         hide: false,

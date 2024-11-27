@@ -1,5 +1,5 @@
-import type { Self } from '../types/self';
-import { DateTime } from 'luxon';
+import type { Self } from '../types/self'
+import { DateTime } from 'luxon'
 
 export const self: Self = {
   birth: DateTime.fromISO('1988-09-19'),
@@ -13,10 +13,5 @@ export const self: Self = {
     'project_management',
     'team_management',
   ],
-  personalInterests: [
-    'hiking',
-    'role_playing_games',
-    'woodworking',
-    'handcraft',
-  ]
+  personalInterests: ['hiking', 'role_playing_games', 'woodworking', 'handcraft'],
 }
