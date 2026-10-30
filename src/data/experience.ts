@@ -3,12 +3,134 @@ import { DateTime } from 'luxon'
 
 export const experience: Experience[] = [
   {
+    company: 'Technis',
+    title: 'Senior Software Engineer',
+    location: 'Lausanne, Switzerland',
+    dates: [DateTime.fromISO('2025-02'), null],
+    about:
+      'Technis provides occupancy and people-counting analytics for buildings, retail and venues. Technis acquired E-nno, a Swiss company optimising the energy consumption of buildings.',
+    stages: [
+      {
+        name: 'E-nno Integration (Building Energy Optimisation)',
+        dates: [DateTime.fromISO('2026-06'), null],
+        skills: [
+          'TypeScript',
+          'Vue3',
+          'NestJS',
+          'PHP',
+          'Laravel',
+          'TimescaleDB',
+          'M-Bus',
+          'MQTT',
+          'AMQP',
+          'Balena',
+          'Airflow',
+          'Ansible',
+        ],
+        description:
+          'Integrated the E-nno platform, from the edge boxes installed in buildings to the customer portal.',
+        tasks: [
+          'Made the edge box M-Bus client plug-and-play and hardened the HVAC emulation client (optimisation loop, state reconciliation, race conditions)',
+          'Built an on-site audit tool (Wi-Fi hotspot with captive portal) that scores box health from structured logs',
+          'Delivered the v3 gateway support in the portal: M-Bus device wizard, emulator replacement wizard and Balena fleets',
+          'Rewrote the daily energy consumption breakdown algorithm of a utility-facing API (Laravel, TimescaleDB), backed by conservation tests',
+          'Added a project health cockpit, Airflow jobs (sensor onboarding, weather data) and an Ansible-provisioned SFTP gateway',
+        ],
+        hide: false,
+      },
+      {
+        name: 'Data Platform',
+        dates: [DateTime.fromISO('2026-03'), DateTime.fromISO('2026-06')],
+        skills: ['Java', 'Apache Beam', 'Dataflow', 'Python3', 'FastAPI', 'Pub/Sub', 'Terraform'],
+        description:
+          'Started the next-generation data platform, ingesting third-party data and computing business metrics at scale.',
+        tasks: [
+          'Bootstrapped a polyglot data platform: Java Apache Beam Flex Templates and Python services, with Terraform and CI/CD that updates running Dataflow jobs',
+          'Built a streaming sales-metrics pipeline correlating store receipts with zone occupancy',
+          'Developed a processing-plan service (materialisation, change detection) driving which pipelines run for which organisations',
+          'Contributed to the third-party ingestion platform: E-nno and retail connectors, cursor watermarking, run control plane and failure alerting',
+        ],
+        hide: false,
+      },
+      {
+        name: 'Identity & Access Management',
+        dates: [DateTime.fromISO('2025-02'), DateTime.fromISO('2026-04')],
+        skills: [
+          'TypeScript',
+          'NestJS',
+          'Keycloak',
+          'OPA',
+          'PostgreSQL',
+          'Prisma',
+          'MongoDB',
+          'Pub/Sub',
+          'Nx',
+        ],
+        description:
+          'Worked on the new Access Management service replacing the legacy authorization model (Keycloak for identity, OPA/OPAL for authorization).',
+        tasks: [
+          'Designed and built the Replicator, keeping users, organizations, memberships and access rights in sync between the legacy platform and the new IAM (MongoDB change streams, Pub/Sub, resumable streams)',
+          'Migrated existing organizations, users and access rights to the new IAM while both platforms run side by side',
+          'Introduced organization-scoped service accounts through a shared principal model for humans and machines, keeping OPA, OPAL and event contracts backward compatible',
+          'Added scopes and resources to authorize AI agents (MCP) and product metrics',
+        ],
+        hide: false,
+      },
+      {
+        name: 'Spaces Platform',
+        dates: [DateTime.fromISO('2025-02'), DateTime.fromISO('2026-04')],
+        skills: [
+          'TypeScript',
+          'React',
+          'NestJS',
+          'MongoDB',
+          'Redis',
+          'SSE',
+          'MCP',
+          'AI Agents',
+          'GCP',
+          'Terraform',
+        ],
+        description:
+          'Spaces is the new analytics platform of Technis (React frontend and NestJS BFF).',
+        tasks: [
+          'Built the real-time pipeline: live metrics from Pub/Sub stored in Redis and streamed to dashboards over Server-Sent Events (single session, heartbeat, reconnection)',
+          'Exposed the platform to AI agents with an MCP server secured by OAuth/OIDC discovery and scope-based authorization',
+          'Shipped an AI assistant (streaming chat using MCP tools) and an AI widget wizard',
+          'Delivered floor plans (upload, preview, save), marketplace and product correlation, and PDF/XLSX report exports',
+          'Raised quality: strict TypeScript, typed i18n, generated API types, integration tests and Dependabot',
+        ],
+        hide: false,
+      },
+      {
+        name: 'Reports & Notifications',
+        dates: [DateTime.fromISO('2025-04'), DateTime.fromISO('2026-03')],
+        skills: [
+          'TypeScript',
+          'NestJS',
+          'Playwright',
+          'MongoDB',
+          'GCP',
+          'Terraform',
+          'GitHub Actions',
+        ],
+        tasks: [
+          'Created the Reports API: PDF generation through a headless browser, XLSX exports with merged headers, and scheduled reports sent by email',
+          'Contributed to the Notifications service (email templates, OpenAPI documentation)',
+          'Secured the services on Cloud Run (private ingress, internal load balancer, Secret Manager) and managed their service accounts in the Terraform foundation',
+          'Set up keyless CI/CD with GitHub Actions and Workload Identity Federation',
+        ],
+        hide: false,
+      },
+    ],
+  },
+  {
     company: 'Koala Insurance',
     title: 'Co-Founder & Chief Technology Officer',
     location: 'Paris, France',
     dates: [DateTime.fromISO('2019-10'), DateTime.fromISO('2024-09')],
     about:
-      'Koala is a insurance broker with the mission to build fair and simple travel insurance products and services for the travel industry.',
+      'Koala is an insurance broker with the mission to build fair and simple travel insurance products and services for the travel industry.',
     stages: [
       {
         name: 'Late stage (up to 8 developers)',

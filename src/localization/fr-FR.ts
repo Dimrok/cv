@@ -2,6 +2,9 @@ import type { MessageSchema } from './en-EN'
 
 const messages: MessageSchema = {
   print: "Cette page a été optimisée pour l'impression",
+  skills: {
+    stale: 'Pas de pratique professionnelle récente',
+  },
   interests: {
     software_engineering: 'Génie logiciel',
     process_optimization: 'Optimisation des processus',

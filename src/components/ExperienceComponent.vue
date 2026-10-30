@@ -4,9 +4,7 @@
       {{ props.company }}<span> - {{ props.title }}</span>
     </h4>
     <a class="dates-and-location">
-      {{ props.dates[0].toFormat('LLLL yyyy') }} - {{ props.dates[1].toFormat('LLLL yyyy') }} ({{
-        toHuman(props.dates[1].diff(props.dates[0]))
-      }}) - {{ props.location }}</a
+      {{ formatPeriod(props.dates) }} ({{ periodDuration(props.dates) }}) - {{ props.location }}</a
     >
     <p class="about">
       <a>{{ props.about }}</a>
@@ -17,11 +15,7 @@
       <h5>
         {{ stage.name }}
       </h5>
-      <a class="dates"
-        >{{ stage.dates[0].toFormat('LLLL yyyy') }} - {{ stage.dates[1].toFormat('LLLL yyyy') }} ({{
-          toHuman(stage.dates[1].diff(stage.dates[0]))
-        }})</a
-      >
+      <a class="dates">{{ formatPeriod(stage.dates) }} ({{ periodDuration(stage.dates) }})</a>
       <ul class="tags">
         <li v-for="tag of stage.skills" :key="tag" class="tag">
           {{ tag }}
@@ -38,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { toHuman } from '@/lib/duration-to-human'
+import { formatPeriod, periodDuration } from '@/lib/period'
 import type { Experience } from '@/types/experience'
 
 const props = defineProps<Experience>()

@@ -28,3 +28,6 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# LaTeX build artefacts
+resume/latex/build

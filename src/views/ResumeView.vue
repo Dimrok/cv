@@ -3,7 +3,7 @@
   <section class="head">
     <div>
       <h1>{{ self.firstName }} {{ self.lastName.toUpperCase() }}</h1>
-      <h2>Software Engineer, Former Chief Technology Officer at Koala Insurance</h2>
+      <h2>{{ self.headline }}</h2>
       <p class="highlight"><span>Location: </span>{{ self.locations.join(' | ') }}</p>
       <p class="highlight"><span>Nationality: </span>{{ $t('nationality.fr') }}</p>
       <p class="highlight"><span>Age: </span>{{ self.birth.diffNow().negate().toFormat('y') }}</p>
@@ -15,27 +15,27 @@
       <section>
         <h3>Contact</h3>
         <ul>
-          <li><a href="tel:+33640129679">+33 6 40 12 96 79</a></li>
-          <li><a href="mailto:antony.mechin@gmail.com">antony.mechin@gmail.com</a></li>
-          <li><a href="https://dimrok.github.io/resume">dimrok.github.io/resume</a></li>
-          <li><a href="https://linkedin.com/in/antony-mechin">linkedin.com/in/antony-mechin</a></li>
-          <li><a href="https://github.com/dimrok">github.com/dimrok</a></li>
+          <li v-for="link of [self.phone, self.email, ...self.links]" :key="link.href">
+            <a :href="link.href">{{ link.label }}</a>
+          </li>
         </ul>
       </section>
       <section>
         <h3>Languages</h3>
         <ul>
-          <li><span>French:</span> Native</li>
-          <li><span>English:</span> Professional</li>
-          <li><span>Spanish:</span> Beginner</li>
+          <li v-for="language of self.languages" :key="language.name">
+            <span>{{ language.name }}:</span> {{ language.level }}
+          </li>
         </ul>
       </section>
       <section>
         <h3>Skills</h3>
         <ul>
-          <li v-for="[name, grade] of Object.entries(skills)" :key="name">
+          <li v-for="skill of self.skills" :key="skill.name">
             <div class="skill">
-              {{ name }}
+              <span :title="skill.stale ? $t('skills.stale') : undefined">
+                {{ skill.name }}<template v-if="skill.stale">*</template>
+              </span>
               <StarRating
                 class="stars"
                 :increment="0.5"
@@ -44,13 +44,16 @@
                 :fixed-points="1"
                 :star-id="0"
                 :round-start-rating="false"
-                :rating="grade"
+                :rating="skill.level"
                 active-color="black"
                 inactive-color="white"
               />
             </div>
           </li>
         </ul>
+        <p v-if="self.skills.some((skill) => skill.stale)" class="footnote">
+          * {{ $t('skills.stale') }}
+        </p>
       </section>
       <section>
         <h3>Professional Interests</h3>
@@ -71,9 +74,18 @@
     </aside>
     <div class="content">
       <section>
+        <p class="summary">{{ self.summary }}</p>
+      </section>
+      <section>
         <h3>Experience</h3>
         <div v-for="xp of experience" :key="xp.company" class="experience">
           <ExperienceComponent v-bind="xp" />
+        </div>
+      </section>
+      <section>
+        <h3>Personal Projects</h3>
+        <div v-for="project of projects" :key="project.name" class="project">
+          <ProjectComponent v-bind="project" />
         </div>
       </section>
       <section>
@@ -90,24 +102,12 @@
 import { self } from '@/data/self'
 import { experience } from '@/data/experience'
 import { education } from '@/data/education'
+import { projects } from '@/data/projects'
 
 import ExperienceComponent from '@/components/ExperienceComponent.vue'
 import EducationComponent from '@/components/EducationComponent.vue'
+import ProjectComponent from '@/components/ProjectComponent.vue'
 import StarRating from 'vue-star-rating'
-
-const skills: Record<string, number> = {
-  'Project Management': 4,
-  TypeScript: 4,
-  Processes: 4,
-  'Node.js': 4,
-  Docker: 4,
-  NestJS: 4,
-  Prisma: 4,
-  'People Management': 3.5,
-  AWS: 3.5,
-  Hiring: 3.5,
-  Tooling: 3,
-}
 </script>
 
 <style scoped>
@@ -170,6 +170,16 @@ aside li span {
   font-weight: 700;
 }
 
+aside .skill span {
+  font-weight: inherit;
+}
+
+aside .footnote {
+  margin-block: -0.5rem 1rem;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
 aside h3 {
   margin: 0;
 }
@@ -210,13 +220,21 @@ aside .skill .stars {
   background-color: var(--color-text-primary);
 }
 
+.summary {
+  margin-block: 0 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
 .experience,
+.project,
 .education {
   margin-bottom: 1rem;
   position: relative;
 }
 
 .experience::after,
+.project::after,
 .education::after {
   content: '';
   position: absolute;
@@ -228,6 +246,7 @@ aside .skill .stars {
 }
 
 .experience:last-child::after,
+.project:last-child::after,
 .education:last-child::after {
   display: none;
 }

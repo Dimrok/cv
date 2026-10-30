@@ -4,6 +4,9 @@ import type { Interrest } from '@/types/self'
 
 const messages = {
   print: 'This page has been optimized for printing.',
+  skills: {
+    stale: 'No recent professional use',
+  },
   interests: {
     software_engineering: 'Software Engineering',
     process_optimization: 'Process Optimization',
