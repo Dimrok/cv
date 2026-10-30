@@ -8,7 +8,6 @@
     "typeRoots": [
       "./types"
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
         "vue-star-rating": ["./types/vue-star-rating"]
